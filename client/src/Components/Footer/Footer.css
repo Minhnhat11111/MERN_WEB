@@ -1,0 +1,58 @@
+.footer-info{
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(4,1fr);
+    width:100% ;
+    padding: 50px;
+    font-size: 15px;
+}
+
+
+.footer-info ul li{
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.footer-info h2{
+    color: #E2D89B;
+}
+
+
+.footer-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+    }
+    
+
+.footer-nav, .footer-contact, .footer-media, .footer-logo {
+    text-align: left; 
+}
+
+.footer-year {
+    position: relative;
+    text-align: right;
+}
+
+.footer-year p{
+    padding: 20px;
+}
+
+.footer-year hr{
+    width: 20%;
+    position: absolute;
+    right: 0;
+}
+
+
+.social-media-icons{
+    display: flex;
+    gap: 20px;
+}
+
+.social-media-icons i{
+    margin-top: 10px;
+    font-size: 20px;
+}

@@ -1,0 +1,117 @@
+
+/*************************************HEADER*****************************/
+.headerbar{
+    display: none;
+}
+
+.logo{
+    font-size: 70px;
+    font-family:'Italianno', serif;
+}
+.logo-info{
+    z-index: 2;
+    background-color: transparent;
+}
+
+.logo-name{
+    font-size: 17px;
+    font-family: 'Inria Sans', sans-serif;
+    margin-top: -20px;
+}
+
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding : 1vw 2vw 1vw 3vw;
+
+}
+
+
+.bar{
+    padding: 10px;
+    display: none;  
+}
+
+
+
+.header .nav-bar ul{
+    display: flex;
+   align-items: center;
+}
+
+.header .nav-bar ul li a {
+    position: relative; /* Để ::after hoạt động chính xác */
+    color: #EDE9D2;
+  text-decoration: none;
+}
+
+
+
+.header .nav-bar ul li a::after {
+    content: ''; /* Không có nội dung thực sự */
+    position: absolute; /* Định vị tuyệt đối để đường gạch chân nằm dưới văn bản */
+    left: 0;
+    bottom: 0;
+    height: 3px; /* Độ dày của đường gạch chân */
+    width: 0; /* Chiều rộng bắt đầu từ 0 */
+    background:#EDE9D2;
+     transition: width 0.3s ease; 
+    }
+
+.header .nav-bar ul li a:hover::after {
+    width: 100%; /* Mở rộng đường gạch chân đến toàn bộ */
+}
+
+.nav-bar ul li{
+    padding : 0 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+.nav-bar .book-btn {
+    font-size: 25px;
+    padding :10px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid #EDE9D2; 
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+
+.nav-bar .book-btn:hover{
+  color: #1F2629;
+  background-color: #EDE9D2;
+  text-decoration: none;
+}
+
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .user-menu span {
+    color: #EDE9D2;
+  }
+  
+  .logout-btn {
+    background: none;
+    border: 2px solid #EDE9D2;
+    color: #EDE9D2;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .logout-btn:hover {
+    background: #EDE9D2;
+    color: #1F2629;
+  }

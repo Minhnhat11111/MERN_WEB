@@ -1,0 +1,107 @@
+.login-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 3px solid #EDE9D2;
+    border-radius: 10px;
+    background-color :#1F2629;
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: normal;
+    font-family: 'Italianno', serif;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    
+}
+
+.form-input {
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid #EDE9D2 ;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 100%;
+}
+
+.submit-btn{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #e2d9a8;
+    ;
+    color: #1F2629;
+    font-size:  20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid #e2d9a8;
+    ;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1F2629;
+    color: #fff;
+    border: 2px solid #EDE9D2 ;
+    border-radius: 10px;
+}
+
+
+.btn-google-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #1F2629;
+    font-size:  20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid #EDE9D2 ;
+    transition: background-color 0.3s ease;
+}
+
+.btn-google-btn:hover{
+    background-color: #1F2629;
+    color: #fff;
+    border: 2px solid #EDE9D2 ;
+    border-radius: 10px;
+}
+
+.btn-google-btn i {
+    margin-left: 8px; /* Khoảng cách giữa icon và chữ */
+    background: linear-gradient(90deg, #DB4437, #F4B400, #0F9D58, #4285F4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Để tạo hiệu ứng gradient cho chữ */
+    font-size: 20px; /* Kích thước icon */
+}
+
+.register-prompt {
+    text-align: center;
+    margin-top: 20px;
+   
+}
+
+.register-link {
+    color: #e4d894;
+    text-decoration: none;
+    font-weight:bolder
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}

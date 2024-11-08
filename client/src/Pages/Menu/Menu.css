@@ -1,0 +1,105 @@
+/* Menu.css */
+
+body {
+    background-color: #1F2629;
+}
+
+.title-menu h1{
+    font-size: 100px;
+    margin-top: 30px;
+    color: #E2D89B;
+    text-align: left;
+    font-family: 'Italianno', serif;
+    font-weight: normal;
+}
+
+.menu-container{
+    display: flex;
+}
+
+.menu-sidebar{
+    width: 20%;
+    padding-right: 20px;
+    padding-top: 10vw;
+}
+
+.menu-sidebar ul li{
+    margin: 30px;
+    font-size: 30px;
+}
+
+.menu-sidebar ul li a:hover{
+   color: #E2D89B;
+}
+
+.menu-sidebar ul li.active a {
+    color: #E2D89B; 
+    font-weight: bold; 
+}
+
+.menu-section{
+    width: 80%;
+    padding: 1vw 3vw 3vw 0;
+}
+
+.menu-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Chỉnh sửa style cho menu-item */
+.menu-item{
+    text-align: left;  
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 300px; /* Đặt chiều cao cố định cho mỗi item */
+}
+
+/* Chỉnh sửa style cho container chứa ảnh */
+.menu-item .img-container {
+    width: 100%;
+    height: 300px; /* Chiều cao cố định cho phần ảnh */
+    overflow: hidden; 
+    position: relative;
+}
+
+/* style ảnh */
+.menu-item img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover; 
+    transition: all 0.3s;
+}
+
+.menu-item img:hover{
+   filter: brightness(1.35);
+}
+
+.menu-item p {
+    font-size: 25px;
+    padding: 10px;
+    margin-top: auto; 
+    background-color: #282f32;
+}
+
+/* Thêm media queries cho responsive */
+@media screen and (max-width: 1200px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}

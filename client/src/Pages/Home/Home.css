@@ -1,0 +1,358 @@
+
+.home{
+    padding: 0vw 3vw 2vw 3vw;
+}
+
+.main_slide{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    
+}
+
+.main_slide h1{
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.main_slide div:nth-child(2){
+    order : 1;
+    flex: 1;
+    display: flex; 
+    justify-self: center;
+    padding-top: 30px ;
+}
+
+.main_slide div:nth-child(2) img{
+    width:90%;
+    height: 100vh;
+}
+
+.main_slide div:nth-child(1){
+    order: 2;
+    flex: 1;
+    font-size: 40px;
+    
+}
+
+.main_slide div:nth-child(1) p{
+ font-size: 30px;
+ padding: 20px 0;
+}
+
+
+.main_slide div:nth-child(1) span{
+    color:#E2D89B;   
+}
+
+.home-btn button{
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 30px;
+    padding: 20px;
+    font-weight: bold;
+   
+    border: 2px solid #EDE9D2; 
+    border-radius: 20px;
+    transition: all 0.5s;
+}
+
+.home-btn button:hover{
+ background-color: #EDE9D2;
+ color: #1F2629;
+}
+
+
+/*******************************************Phần introduction ************************8*************/
+.introduction{
+    margin-bottom: 50px;
+}
+.introduction h1{
+    font-size: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    color: #E2D89B;
+    justify-content: center;
+    font-family: 'Italianno','serif';
+    font-weight: 100;   
+    overflow: hidden; 
+}
+
+.introduction p{
+    font-size: 25px;
+    color:white;
+}
+.intro-img {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; 
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+.intro-img img {
+    max-width: calc(33.333% - 20px); 
+    height: auto;
+    object-fit: contain; 
+    box-sizing: border-box; 
+    transition: transform 0.3s ease;
+}
+
+
+.intro-img img:hover {
+    transform: scale(0.9); 
+}
+
+
+
+
+/***************************************************Phần Menu**************************88*/
+.menu-title {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */  
+}
+
+.menu-title h1{
+    font-size: 100px;
+    padding-top: 50px;
+    color: #E2D89B;
+    justify-content: center;
+    font-family: 'Italianno','serif';
+    font-weight: 100;   
+
+}
+.menu-title hr{
+    flex: 1; /* <hr> kéo dài ra */
+    margin: 0 50px; /* Khoảng cách giữa <hr> và tiêu đề */
+}
+
+
+
+.menu-items{
+    margin: 30px 0;
+    padding: 30px 0;
+    background-color: #EDE9D2;
+    display: flex;
+    justify-content: space-between; /* Thay đổi từ space-around thành space-between */
+    gap: 30px; /* Thêm khoảng cách giữa các items */
+    padding: 30px; /* Thêm padding cho container */
+
+}
+
+.item{
+    width: calc(33.333% - 10px); /* Tính toán kích thước các phần tử cho ba cột */
+    padding: 20px;
+    text-align: left;
+    background-color: #EDE9D2;
+  
+    
+}
+
+.item h3{
+    background-color: #2d2b1e;
+    font-size: 35px;
+    padding: 10px;
+}
+
+.item div{
+    height: 400px;
+    overflow: hidden; 
+  
+}
+
+.item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.item img:hover {
+    transform: scale(1.05); 
+}
+
+
+.item h3{
+    background-color: #2d2b1e;
+    font-size: 35px;
+    padding: 10px;
+    margin: 0; 
+}
+   
+
+
+.item .menu-btn{
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 25px;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #1F2629;
+    background-color: #EDE9D2;
+    border: 2px solid #2a0f47; 
+    transition: all 0.3s;
+}
+    
+.item .menu-btn:hover{
+    background-color:#2d2b1e;
+    color: #EDE9D2;
+}
+
+
+/************Banner đặt bàn*******************************/
+.banner{
+    margin-bottom: 50px;
+    margin-top:50px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    padding: 50px 30px 50px 30px;
+    position: relative;
+    
+
+}
+
+.banner-content{
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.banner-content h1{
+    font-family:'Italianno','serif' ;
+    font-weight: lighter;
+    font-size: 100px;
+    color: #1F2629;
+    background-color: transparent;
+}
+
+.banner-content p{
+    font-size: 35px;
+    color: #1F2629;
+    background-color: transparent;
+}
+.banner-content a button{
+    background-color: #1F2629;
+    margin-top: 40px;
+    font-size: 40px;
+    padding: 15px 20px;
+    color: #EDE9D2;
+    border-radius: 10px;
+    border-width: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.banner-content a button:hover{
+color:#E2D89B;
+}
+
+
+/*************************Event***************************/
+.event h1{
+    font-family:'Italianno','serif' ;
+    font-weight: lighter;
+    font-size: 100px;
+    background-color: transparent;
+}
+
+.main-event{
+    position: relative; /*thằng cha */
+    width:100%;
+    margin-bottom:20px;
+    cursor: pointer;
+}
+
+.main-event img{
+    width: 100%;
+    height: 55vh;
+}
+
+.event-info {
+    position: absolute; /*thằng con */
+    bottom: 0; /* hoạt động giống mỏ neo */
+    left: 0;   /* hoạt động giống mỏ neo */
+    background: rgba(0, 0, 0, 0.6); 
+    width: 100%;
+    padding: 20px;
+}
+
+.event-info h2 {
+    font-size: 40px;
+    background-color: transparent;
+}
+
+.event-info p {
+    margin: 5px 0 0;
+    font-size: 30px;
+    background-color: transparent;
+}
+
+
+.other-event{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.event-item{
+    width: calc(25% - 20px); /* mỗi thằng chiếm 25%, cách nhau 20px */
+    text-align: left;
+    cursor: pointer;
+    
+}
+
+
+.other-event img {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.view-more {
+    text-align: right;
+    margin-top: 50px;
+}
+
+.view-more a {
+    color: #E2D89B;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.view-more a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1024px) {
+    .menu-items {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .item {
+        width: calc(50% - 20px); /* 2 items trên mỗi hàng */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .item {
+        width: 100%; 
+        max-width: 500px; 
+    }
+
+    .item div {
+        height: 300px; 
+    }
+}

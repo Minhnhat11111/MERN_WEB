@@ -1,0 +1,108 @@
+
+.main-content1{
+    padding: 3vw 10vw 10vw 10vw;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+
+.title-about{
+font-size: 80px;
+margin-top: 30px;
+text-align: center;
+}
+
+.title-about h1{
+    font-family: 'Italianno', serif;
+    font-weight: normal;
+    color: #1F2629;
+    background: linear-gradient(to right, #EDE9D2, #f2b88c);
+    background-size: 200%;
+    background-position: left;
+    animation: gradientMove 2s ease-in-out infinite;
+}
+
+/*Tạo chuyển động*/
+@keyframes gradientMove {
+    0% {
+        background-position: left;
+    }
+    50% {
+        background-position: right;
+    }
+    100% {
+        background-position: left;
+    }
+}
+
+.first-content{
+    text-align: justify;
+}
+.first-content img{
+  width: 100%;
+  margin-bottom: 20px;
+ 
+}
+
+.second-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.second-content-img img{
+    width: 300px;
+    height: 100%;
+}
+
+.second-content-description{
+    width: 50%; 
+    text-align: justify;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+.star-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.star-section hr {
+    width: 50%;
+    border: 1px solid #D1B88F;
+}
+
+.star-section .star {
+    color: #D1B88F;
+    font-size: 35px;
+}
+
+
+.last-content{
+    display: flex;
+    align-items: center;
+}
+
+.last-description{
+    width: 70%;
+    padding-right: 40px;
+}
+
+.last-img{
+    width: 40%;
+}
+
+.last-img img{
+    max-width: 100% ;
+    border-radius: 200px;
+    transition: all 0.3s;
+}
+
+.last-img img:hover{
+    border-radius: 0px;
+}
