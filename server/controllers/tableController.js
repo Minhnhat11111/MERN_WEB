@@ -1,3 +1,4 @@
+
 // controllers/tableController.js
 import mongoose from "mongoose";
 import Table from "../models/tableModel.js";
@@ -86,7 +87,7 @@ const getAvailableTables = async (req, res) => {
             searchDate.setHours(0, 0, 0, 0);
             const endDate = new Date(searchDate);
             endDate.setHours(23, 59, 59, 999);
-            query.date = { $gte: searchDate, $lte: endDate };
+query.date = { $gte: searchDate, $lte: endDate };
         }
 
         console.log("Query object:", query); // Log đối tượng truy vấn

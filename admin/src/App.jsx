@@ -10,6 +10,10 @@ import { ToastContainer } from 'react-toastify';
 import Tables from './pages/Tables'
 import 'react-toastify/dist/ReactToastify.css';
 import ReservationList from './pages/ReservationList';
+import AdminReviews from './pages/Review.jsx'
+
+
+
 export const backendUrl = import.meta.env.VITE_BACKEND_URL
 
 const App = () => {
@@ -35,15 +39,15 @@ useEffect(()=>{
                 <Route path='/table' element={<TableManagement />} />
                 <Route path='/reservations' element={<ReservationList />} />
                 <Route path='/add' element={<Add token={token} />} />
-                <Route path='/tables' element={<Tables  />} />
+                <Route path='/review' element={<AdminReviews/>} />
+                <Route path='/tables' element={<Tables/>} />
             <Route path='/list' element={<List token ={token}/>} />
-
           </Routes>
         </div>
       </div>
      </>
       }
-  
+
  </div>
   )
 }

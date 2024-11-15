@@ -14,6 +14,10 @@ import ReservationHistory from './Pages/ReservationHistory/ReservationHistory.js
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthProvider } from './context/AuthContext';
+import PaymentPage from './Pages/Payment/Payment.js';
+import ReviewPage from './Pages/Review/review.js';
+import UserReservations from './Pages/ReservationHistory/ReservationHistory.js';
+
 
 function App() {
   return (
@@ -30,7 +34,9 @@ function App() {
           <Route path="/reservation" element={<BookTable />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<Singup />} />
-       
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/review" element={<ReviewPage />} />
+            <Route path="/history" element={<UserReservations />} />
         </Routes>
         <Footer />
         <ToastContainer position="top-right" autoClose={3000} />
@@ -41,5 +47,6 @@ function App() {
     
   );
 }
+
 
 export default App;

@@ -21,16 +21,17 @@ const Reservation = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [userInfo, setUserInfo] = useState({
     name: user ? user.name : '',
-    phone: user ? user.phone : ''
+    phone: user ? user.phone : '',
+    email: user ? user.email : ''
   });
 
   useEffect(() => {
     if (selectedDate && selectedTime && selectedCapacity) {
-      const availableTable = tables.find(table => 
-        table.seatingCapacities.some(cap => 
+      const availableTable = tables.find(table =>
+        table.seatingCapacities.some(cap =>
           cap.capacity === parseInt(selectedCapacity) &&
-          cap.timeSlots.some(slot => 
-            slot.time === selectedTime && 
+          cap.timeSlots.some(slot =>
+            slot.time === selectedTime &&
             slot.availableQuantity > 0
           )
         )
@@ -47,6 +48,10 @@ const Reservation = () => {
     }));
   };
 
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value); // Store the local date directly without UTC conversion
+  };
+
   const fetchTables = async () => {
     if (!selectedDate) return;
     setIsLoading(true);
@@ -54,10 +59,9 @@ const Reservation = () => {
       const response = await axios.get(`http://localhost:4000/api/table/get?date=${selectedDate}`);
       if (response.data.success && response.data.availableTables) {
         const tableData = response.data.availableTables;
-        
-        // Lọc ra chỉ những bàn còn trống
-        const availableTables = tableData.filter(table => 
-          table.seatingCapacities.some(cap => 
+
+        const availableTables = tableData.filter(table =>
+          table.seatingCapacities.some(cap =>
             cap.timeSlots.some(slot => slot.availableQuantity > 0)
           )
         );
@@ -65,8 +69,8 @@ const Reservation = () => {
         setTables(availableTables);
 
         if (availableTables.length > 0) {
-          const capacities = availableTables.flatMap(table => 
-            table.seatingCapacities.filter(cap => 
+          const capacities = availableTables.flatMap(table =>
+            table.seatingCapacities.filter(cap =>
               cap.timeSlots.some(slot => slot.availableQuantity > 0)
             ).map(cap => cap.capacity)
           );
@@ -122,26 +126,27 @@ const Reservation = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!isAuthenticated()) {
       toast.error('Vui lòng đăng nhập để đặt bàn');
       navigate('/login');
       return;
     }
-
+  
     if (parseInt(numberOfPeople) > parseInt(selectedCapacity)) {
-      toast.error('Số người không được vượt quá sức chứa của bàn');
+      toast.error('Số người không được vượt quá chỗ ngồi của bàn');
       return;
     }
-
+  
     try {
       const token = getToken();
       if (!token) {
         toast.error('Không tìm thấy token xác thực');
         return;
       }
-      
+  
       const reservationData = {
+        userId: user.id,
         tableId: selectedTable._id,
         date: selectedDate,
         timeSlot: selectedTime,
@@ -149,9 +154,10 @@ const Reservation = () => {
         numberOfPeople: parseInt(numberOfPeople),
         note: note || '',
         name: userInfo.name,
-        phone: userInfo.phone
+        phone: userInfo.phone,
+        email: userInfo.email
       };
-
+  
       const response = await axios.post(
         'http://localhost:4000/api/reservations/create',
         reservationData,
@@ -162,10 +168,10 @@ const Reservation = () => {
           }
         }
       );
-
+  
       if (response.data.success) {
         toast.success('Đặt bàn thành công!');
-        
+  
         // Giảm `availableQuantity` và cập nhật danh sách giờ
         setTables(prevTables => prevTables.map(table => {
           if (table._id === selectedTable._id) {
@@ -183,7 +189,7 @@ const Reservation = () => {
                         };
                       }
                       return slot;
-                    }).filter(slot => slot.availableQuantity > 0) // Lọc các slot còn chỗ
+                    }).filter(slot => slot.availableQuantity > 0)
                   };
                 }
                 return cap;
@@ -192,8 +198,12 @@ const Reservation = () => {
           }
           return table;
         }));
-        
-        navigate('/reservations');
+  
+        // Lưu thông tin thanh toán và chuyển sang trang thanh toán
+        const amount = 150000 * response.data.reservation.numberOfPeople;
+  
+        // Chuyển hướng đến trang thanh toán
+        navigate('/payment', { state: { reservationId: response.data.reservation._id, amount } });
       } else {
         toast.error(response.data.message || 'Đặt bàn thất bại');
       }
@@ -202,6 +212,7 @@ const Reservation = () => {
       toast.error(error.response?.data?.message || 'Không thể đặt bàn');
     }
   };
+  
 
   return (
     <div className="reservation-container">
@@ -233,7 +244,7 @@ const Reservation = () => {
           <input
             type="date"
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
+            onChange={handleDateChange}
             required
           />
         </div>
@@ -248,9 +259,7 @@ const Reservation = () => {
           >
             <option value="">Chọn giờ</option>
             {availableTimeSlots.map((time, index) => (
-              <option key={index} value={time}>
-                {time}
-              </option>
+              <option key={index} value={time}>{time}</option>
             ))}
           </select>
         </div>
@@ -265,15 +274,13 @@ const Reservation = () => {
           >
             <option value="">Chọn sức chứa</option>
             {availableCapacities.map((capacity, index) => (
-              <option key={index} value={capacity}>
-                {capacity} người
-              </option>
+              <option key={index} value={capacity}>{capacity}</option>
             ))}
           </select>
         </div>
 
         <div className="form-group">
-          <label>Số lượng người:</label>
+          <label>Số người:</label>
           <input
             type="number"
             value={numberOfPeople}
@@ -291,8 +298,8 @@ const Reservation = () => {
           />
         </div>
 
-        <button type="submit" disabled={isLoading}>
-          Đặt bàn
+        <button type="submit" className="submit-button" disabled={isLoading}>
+          {isLoading ? 'Đang xử lý...' : 'Đặt bàn'}
         </button>
       </form>
     </div>
