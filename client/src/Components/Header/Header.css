@@ -115,3 +115,48 @@
     background: #EDE9D2;
     color: #1F2629;
   }
+
+  /* dropdow */
+  /* Dropdown styles */
+.user-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #333;
+    padding: 10px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 180px;
+    padding: 10px 0;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background-color: #f0f0f0;
+}

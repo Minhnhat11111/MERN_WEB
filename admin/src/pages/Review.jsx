@@ -41,7 +41,7 @@ function AdminReviews() {
                     </tr>
                 </thead>
                 <tbody>
-                    {reviews.map((review) => (
+                    {reviews.map((review) => (  
                         <tr key={review._id}>
                             <td>{review.userId.name}</td>
                             <td>{review.rating}</td>

@@ -63,5 +63,15 @@ const getAllReviews = async (req, res) => {
         res.json({ success: false, message: error.message });
     }
 };
+const deleteReview = async (req, res) => {
+    try {
+        const deletedReview = await reviewModel.findOneAndDelete({ customerId: req.params.customerId });
 
-export { addReview, getAllReviews };
+        if (!deletedReview) return res.status(404).json({ message: 'Review not found' });
+        res.status(204).send();
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+export { addReview, getAllReviews,deleteReview };

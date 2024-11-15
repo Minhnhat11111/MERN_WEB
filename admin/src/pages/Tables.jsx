@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -8,7 +9,6 @@ const formatDate = (dateString) => {
     return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 };
 
-// Hàm format giờ cho chuẩn định dạng hh:mm
 // Hàm format giờ cho chuẩn định dạng hh:mm AM/PM
 const formatTime = (timeString) => {
     const [hours, minutes] = timeString.split(":");

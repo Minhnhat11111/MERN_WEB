@@ -111,7 +111,80 @@ const adminLogin = async (req,res) => {
      // Không có xử lý lỗi ở đây
   }
  }
+// Lấy thông tin user hiện tại
+const getUserInfo = async (req, res) => {
+   try {
+       const user = await userModel.findById(req.userId); // req.userId phải được truyền từ middleware xác thực
+
+       if (!user) {
+           return res.json({ success: false, message: "Không tìm thấy người dùng!" });
+       }
+
+       res.json({
+           success: true,
+           user: {
+               id: user._id,
+               name: user.name,
+               email: user.email,
+               phone: user.phone
+           }
+       });
+   } catch (error) {
+       console.log(error);
+       res.json({ success: false, message: "Có lỗi xảy ra khi lấy thông tin người dùng!" });
+   }
+};
+
+// Lấy danh sách tất cả user
+const getAllUsers = async (req, res) => {
+   try {
+       const users = await userModel.find({}, 'name email phone'); // Lấy tất cả user với các trường cụ thể
+
+       res.json({
+           success: true,
+           users: users.map(user => ({
+               id: user._id,
+               name: user.name,
+               email: user.email,
+               phone: user.phone
+           }))
+       });
+   } catch (error) {
+       console.log(error);
+       res.json({ success: false, message: "Có lỗi xảy ra khi lấy danh sách người dùng!" });
+   }
+};
+
+const removeUser = async (req, res) => {
+   try {
+       await userModel.findByIdAndDelete(req.body.id);
+       res.json({ success: true, message: "Xóa món ăn thành công" });
+   } catch (error) {
+       console.log(error);
+       res.json({ success: false, message: "Lỗi không thể xóa món ăn" });
+   }
+};
+
+const deleteUser = async (req, res) => {
+   try {
+       const userId = req.params.id;  // Lấy id từ URL (tham số)
+       
+       // Tìm và xóa người dùng theo ID
+       const deletedUser = await userModel.findByIdAndDelete(userId);
+       
+       // Nếu không tìm thấy người dùng với ID này
+       if (!deletedUser) {
+           return res.status(404).json({ success: false, message: "Người dùng không tồn tại!" });
+       }
+       
+       // Nếu xóa thành công
+       res.json({ success: true, message: "Xóa tài khoản thành công!" });
+   } catch (error) {
+       console.error('Error in deleteUser:', error);
+       res.status(500).json({ success: false, message: "Có lỗi xảy ra khi xóa tài khoản" });
+   }
+};
 
 
 
-export {loginUser,registerUser,adminLogin}
+export { loginUser, registerUser, adminLogin, getUserInfo, getAllUsers,deleteUser,removeUser };

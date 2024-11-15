@@ -49,7 +49,6 @@ function UserReservations() {
                                 <th>Ngày</th>
                                 <th>Thời gian</th>
                                 <th>Số người</th>
-                                <th>Số bàn</th>
                                 <th>Tên người đặt</th>
                                 <th>Số điện thoại</th>
                                 <th>Ghi chú</th>
@@ -62,7 +61,6 @@ function UserReservations() {
                                     <td>{new Date(reservation.date).toLocaleDateString()}</td>
                                     <td>{reservation.timeSlot}</td>
                                     <td>{reservation.numberOfPeople}</td>
-                                    <td>{reservation.tableNumber}</td>
                                     <td>{reservation.name}</td>
                                     <td>{reservation.phone}</td>
                                     <td>{reservation.note || "Không có"}</td>

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
@@ -11,7 +12,7 @@ import Tables from './pages/Tables'
 import 'react-toastify/dist/ReactToastify.css';
 import ReservationList from './pages/ReservationList';
 import AdminReviews from './pages/Review.jsx'
-
+import UserList from './pages/Userlist.jsx'
 
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL
@@ -39,7 +40,8 @@ useEffect(()=>{
                 <Route path='/table' element={<TableManagement />} />
                 <Route path='/reservations' element={<ReservationList />} />
                 <Route path='/add' element={<Add token={token} />} />
-                <Route path='/review' element={<AdminReviews/>} />
+                <Route path='/review' element={<AdminReviews />} />
+                <Route path='/user' element={<UserList/>} />
                 <Route path='/tables' element={<Tables/>} />
             <Route path='/list' element={<List token ={token}/>} />
           </Routes>
